@@ -1,0 +1,107 @@
+﻿// C:\DataFlex Projects\FutbolWebbApp\AppSrc\EquipoView.wo
+// EquipoView
+//
+
+Use cWebView.pkg
+Use cWebPanel.pkg
+Use cWebForm.pkg
+Use cWebGrid.pkg
+Use cWebColumn.pkg
+
+Use cligaDataDictionary.dd
+Use cequipoDataDictionary.dd
+Use cjugadorDataDictionary.dd
+
+Object EquipoView is a cWebView
+    Set piColumnCount to 12
+    Set psCaption to "EquipoView"
+    Set piWidth to 700
+
+    Object oliga_DD is a cligaDataDictionary
+    End_Object 
+
+    Object oequipo_DD is a cequipoDataDictionary
+        Set DDO_Server To oliga_DD
+        // this lets you save a new parent DD from within child DD
+        Set Allow_Foreign_New_Save_State to True
+    End_Object 
+
+    Object ojugador_DD is a cjugadorDataDictionary
+        Set DDO_Server To oequipo_DD
+        Set Constrain_File To equipo.File_Number
+    End_Object 
+
+    Set Main_DD To oequipo_DD
+    Set Server  To oequipo_DD
+
+
+    Object oWebMainPanel is a cWebPanel
+        Set piColumnCount to 12
+
+        Object oligaID is a cWebForm
+            Entry_Item liga.ID
+            Set piColumnSpan to 2
+            Set piColumnIndex to 0
+            Set peLabelPosition to lpTop
+            Set psLabel to "ID"
+        End_Object 
+
+        Object oligaNombre is a cWebForm
+            Entry_Item liga.Nombre
+            Set piColumnSpan to 12
+            Set piColumnIndex to 0
+            Set peLabelPosition to lpTop
+            Set psLabel to "Nombre"
+        End_Object 
+
+        Object oligaPais is a cWebForm
+            Entry_Item liga.Pais
+            Set piColumnSpan to 9
+            Set piColumnIndex to 0
+            Set peLabelPosition to lpTop
+            Set psLabel to "Pais"
+        End_Object 
+
+        Object oligaEquipos is a cWebForm
+            Entry_Item liga.Equipos
+            Set piColumnSpan to 2
+            Set piColumnIndex to 0
+            Set peLabelPosition to lpTop
+            Set psLabel to "Equipos"
+        End_Object 
+
+        Object oligaEquiposMax is a cWebForm
+            Entry_Item liga.EquiposMax
+            Set piColumnSpan to 2
+            Set piColumnIndex to 0
+            Set peLabelPosition to lpTop
+            Set psLabel to "EquiposMax"
+        End_Object 
+
+        Object oDetailGrid is a cWebGrid
+            Set Server to ojugador_DD
+            Set piOrdering to 2
+            Set pbFillHeight to True
+            Set piColumnSpan to 12
+
+            Object ojugadorNombre is a cWebColumn
+                Entry_Item jugador.Nombre
+                Set psCaption to "Nombre"
+                Set piWidth to 600
+            End_Object 
+
+            Object ojugadorApellido is a cWebColumn
+                Entry_Item jugador.Apellido
+                Set psCaption to "Apellido"
+                Set piWidth to 600
+            End_Object 
+
+            Object ojugadorNacionalidad is a cWebColumn
+                Entry_Item jugador.Nacionalidad
+                Set psCaption to "Nacionalidad"
+                Set piWidth to 500
+            End_Object 
+        End_Object 
+    End_Object 
+
+End_Object 

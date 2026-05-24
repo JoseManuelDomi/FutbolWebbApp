@@ -1,0 +1,108 @@
+﻿// C:\DataFlex Projects\FutbolWebbApp\AppSrc\ligaWebLookup.wo
+// liga Lookup List
+//
+
+Use cWebModalDialog.pkg
+Use cWebPanel.pkg
+Use cWebButton.pkg
+Use cWebPromptList.pkg
+Use cWebColumn.pkg
+
+Use cligaDataDictionary.dd
+
+Object oligaWebLookup is a cWebModalDialog
+    Set piColumnCount to 12
+    Set psCaption to "liga Lookup List"
+    Set piWidth to 700
+    Set piHeight to 400
+
+    Object oliga_DD is a cligaDataDictionary
+    End_Object 
+
+    Set Main_DD To oliga_DD
+    Set Server  To oliga_DD
+
+
+    Object oWebMainPanel is a cWebPanel
+        Set piColumnCount to 12
+
+        Object oPromptList is a cWebPromptList
+            Set pbFillHeight to True
+            Set piColumnSpan to 12
+
+            Object oligaID is a cWebColumn
+                Entry_Item liga.ID
+                Set psCaption to "ID"
+                Set piWidth to 100
+            End_Object 
+
+            Object oligaNombre is a cWebColumn
+                Entry_Item liga.Nombre
+                Set psCaption to "Nombre"
+                Set piWidth to 1000
+            End_Object 
+
+            Object oligaPais is a cWebColumn
+                Entry_Item liga.Pais
+                Set psCaption to "Pais"
+                Set piWidth to 500
+            End_Object 
+
+            Object oligaEquipos is a cWebColumn
+                Entry_Item liga.Equipos
+                Set psCaption to "Equipos"
+                Set piWidth to 100
+            End_Object 
+
+            Object oligaEquiposMax is a cWebColumn
+                Entry_Item liga.EquiposMax
+                Set psCaption to "EquiposMax"
+                Set piWidth to 100
+            End_Object 
+        End_Object 
+
+        Object oOkButton is a cWebButton
+            Set psCaption to "OK"
+            Set piColumnSpan to 2
+            Set piColumnIndex to 6
+
+            Procedure OnClick
+                Send Ok of oPromptList
+            End_Procedure
+
+        End_Object 
+
+        Object oCancelButton is a cWebButton
+            Set psCaption to "Cancel"
+            Set piColumnSpan to 2
+            Set piColumnIndex to 8
+            Procedure OnClick
+                Send Cancel of oPromptList
+            End_Procedure
+
+        End_Object 
+
+        Object oSearchButton is a cWebButton
+            Set psCaption to "Search..."
+            Set piColumnSpan to 2
+            Set piColumnIndex to 10
+
+            Procedure OnClick
+                Send Search of oPromptList
+            End_Procedure
+
+        End_Object 
+    End_Object 
+
+    Procedure Popup Handle hoReturnObject
+        Forward Send Popup hoReturnObject
+        
+        Send InitializePromptList of oPromptList
+    End_Procedure 
+
+    Set pbServerOnSubmit to True
+    Procedure OnSubmit 
+        Send Ok of oPromptList
+    End_Procedure 
+
+End_Object 

@@ -10,7 +10,7 @@ Use cligaDataDictionary.dd
 Use cequipoDataDictionary.dd
 Use centrenadorDataDictionary.dd
 
-Object EntrenadorView is a cWebView
+Object oEntrenadorView is a cWebView
     Set piColumnCount to 12
     Set psCaption to "EntrenadorView"
     Set piWidth to 700

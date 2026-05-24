@@ -3,6 +3,8 @@
 Open liga
 Open equipo
 
+Register_Object oligaWebLookup
+
 Class cligaDataDictionary is a DataDictionary
     
     Procedure Construct_Object
@@ -16,6 +18,18 @@ Class cligaDataDictionary is a DataDictionary
         Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
         Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
 
+        Set Field_WebPrompt_Object Field liga.ID to oligaWebLookup
+
+        Set Field_WebPrompt_Object Field liga.Nombre to oligaWebLookup
+
+        Set Field_WebPrompt_Object Field liga.Pais to oligaWebLookup
+
     End_Procedure
 
 End_Class
+
+    #IFDEF Is$WebApp
+    Use ligaWebLookup.wo
+    #ELSE
+    #ENDIF
+    

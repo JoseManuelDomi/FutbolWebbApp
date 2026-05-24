@@ -1,4 +1,4 @@
-﻿// C:\DataFlex Projects\FutbolWebbApp\AppSrc\LigaView.wo
+﻿// C:\DataFlex Projects\FutbolWebbApp\AppSrc\oLigaView.wo
 // Ficha de la Liga
 //
 
@@ -11,7 +11,7 @@ Use cWebColumn.pkg
 Use cligaDataDictionary.dd
 Use cequipoDataDictionary.dd
 
-Object LigaView is a cWebView
+Object oLigaView is a cWebView
     Set piColumnCount to 12
     Set psCaption to "Ficha de la Liga"
     Set piWidth to 700
@@ -27,7 +27,12 @@ Object LigaView is a cWebView
     End_Object 
 
     Set Main_DD To oliga_DD
-    Set Server  To oliga_DD
+    Set Server  to oliga_DD
+    
+    Procedure OnShow
+    Forward Send OnShow
+    Send Request_Find of oliga_DD FIRST_RECORD liga.File_Number 1
+End_Procedure
 
 
     Object oWebMainPanel is a cWebPanel

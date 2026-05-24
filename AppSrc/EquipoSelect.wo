@@ -1,0 +1,47 @@
+﻿// C:\DataFlex Projects\FutbolWebbApp\AppSrc\EquipoSelect.wo
+// EquipoSelect
+//
+
+Use cWebView.pkg
+Use cWebPanel.pkg
+
+Use cligaDataDictionary.dd
+Use cequipoDataDictionary.dd
+Use cWebList.pkg
+Use cWebColumn.pkg
+
+Object oEquipoSelect is a cWebView
+    Set Server to oequipo_DD
+    Set piColumnCount to 12
+    Set psCaption to "EquipoSelect"
+    Set piWidth to 700
+
+    Object oliga_DD is a cligaDataDictionary
+    End_Object 
+
+    Object oequipo_DD is a cequipoDataDictionary
+        Set DDO_Server To oliga_DD
+    End_Object 
+
+    Set Main_DD To oequipo_DD
+
+
+    Object oWebMainPanel is a cWebPanel
+        Set piColumnCount to 12
+
+        Object oWebList1 is a cWebList
+            Object oWebColumn2 is a cWebColumn
+                Entry_Item equipo.ID
+                Set psCaption to "ID"
+                Set piWidth to 333
+            End_Object
+            
+            Object oWebColumn1 is a cWebColumn
+                Entry_Item equipo.Nombre
+                Set psCaption to "Equipo"
+                Set piWidth to 333
+            End_Object
+        End_Object
+    End_Object 
+
+End_Object 

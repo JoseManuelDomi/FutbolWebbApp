@@ -12,7 +12,7 @@ Use cligaDataDictionary.dd
 Use cequipoDataDictionary.dd
 Use cjugadorDataDictionary.dd
 
-Object EquipoView is a cWebView
+Object oEquipoView is a cWebView
     Set piColumnCount to 12
     Set psCaption to "EquipoView"
     Set piWidth to 700
@@ -44,7 +44,17 @@ Object EquipoView is a cWebView
             Set piColumnIndex to 0
             Set peLabelPosition to lpTop
             Set psLabel to "ID"
-        End_Object 
+            
+            // --- INICIO CÓDIGO PUNTO 2: NAVEGACIÓN AL SELECT PADRE ---
+            Set pbPromptButton to True 
+            
+            WebRegisterPath ntNavigateForward oligaWebLookup 
+
+            Procedure OnPrompt
+                Send NavigatePath
+            End_Procedure
+      
+        End_Object
 
         Object oligaNombre is a cWebForm
             Entry_Item liga.Nombre

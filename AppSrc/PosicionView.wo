@@ -8,7 +8,7 @@ Use cWebForm.pkg
 
 Use cposicionDataDictionary.dd
 
-Object PosicionView is a cWebView
+Object oPosicionView is a cWebView
     Set piColumnCount to 12
     Set psCaption to "PosicionView"
     Set piWidth to 700

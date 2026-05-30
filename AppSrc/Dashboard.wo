@@ -19,22 +19,7 @@ Register_Object oPosicionView
 
 Object oDashboard is a cWebView
 
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
-    // Add a DDO Structure 
-    //
-    // There is no need to synchronize a DD structure on the client so we do
-    // not set the Server property or send ADDOStructure. We will simply use
-    // DDO's to mine data and generate HTML for our cWebHTMLBox objects.
-    // It is the HTML in these objects that is sent to the client each time 
-    // this page is shown.
-    //
-    // Also, it is important for the drill-down Navigation interface that we
-    // do not set the Server property to some DDO because this will affect 
-    // constraints in the next view that we navigate to.
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
     Set piMaxWidth to 1024
-    
     Set psCaption to "Dashboard"
     Set peViewType to vtUndefined
     Set pbShowCaption to False
@@ -43,9 +28,6 @@ Object oDashboard is a cWebView
     Object oWebMainPanel is a cWebPanel
         Set piColumnCount to 24
         
-        // - - - - - - - - - - - - - - -
-        // Main Panel's Responsive Rules
-        // - - - - - - - - - - - - - - -
         WebSetResponsive piColumnCount rmMobile to 1
         WebSetResponsive piColumnCount rmTabletPortrait to 16
     
@@ -54,7 +36,6 @@ Object oDashboard is a cWebView
             Set pbShowBorder to False
             Set pbShowCaption to False
             Set piColumnCount to 12
-            
             Set psCSSClass to "TilesGroup"
 
             Object oTile3 is a cWebHtmlBox
@@ -63,12 +44,9 @@ Object oDashboard is a cWebView
                 Set psCSSClass to "Tile Dark"
                 Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title">Equipos</div><div class="Tile_Subtitle"></div></div>'
     
-                // WebRegisterPath ntNavigateForwardCustom oYourViewName
-                
                 Procedure OnClick String sId String sParam
-                    Send Show of oEquipoView Self
+                    Send NavigateForward of oEquipoView Self 
                 End_Procedure
-                
             End_Object
 
             Object oTile2 is a cWebHtmlBox
@@ -78,12 +56,9 @@ Object oDashboard is a cWebView
                 Set psCSSClass to "Tile LightAlternate"
                 Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title">Ligas</div><div class="Tile_Subtitle"></div></div>'
                                 
-                // WebRegisterPath ntNavigateForwardCustom oYourViewName
-                
                 Procedure OnClick String sId String sParam
-                    Send Show of oLigaView Self
+                    Send NavigateForward of oLigaView Self
                 End_Procedure
-                
             End_Object
 
             Object oTile4 is a cWebHtmlBox
@@ -93,12 +68,10 @@ Object oDashboard is a cWebView
                 Set psCSSClass to "Tile DarkAlternate"
                 Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title">Entrenadores</div><div class="Tile_Subtitle"></div></div>'
             
-                // WebRegisterPath ntNavigateForwardCustom oYourViewName
-                
                 Procedure OnClick String sId String sParam
-                    Send Show of oEntrenadorView Self
+
+                    Send NavigateForward of oEntrenadorView Self
                 End_Procedure
-                
             End_Object
 
             Object oTile5 is a cWebHtmlBox
@@ -108,30 +81,29 @@ Object oDashboard is a cWebView
                 Set psCSSClass to "Tile DarkAlternate"
                 Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title">Posiciones</div><div class="Tile_Subtitle"></div></div>'
             
-                // WebRegisterPath ntNavigateForwardCustom oYourViewName
-                
                 Procedure OnClick String sId String sParam
-                    Send Show of oPosicionView Self
+                    Send NavigateForward of oPosicionView Self
                 End_Procedure
-                
             End_Object
 
             Object oWelcomeTile is a cWebHtmlBox
+                Set pbServerOnClick to True 
+                
                 Set piColumnSpan to 6
                 Set psCSSClass to "Tile Light"
-                Set psHtml to '<div Class="WebCon_Sizer"><div class="Tile_Title">Jugadores</div><div Class="Tile_Subtitle">--</div></div>'
+
+                Set psHtml to '<div Class="WebCon_Sizer" data-ServerOnClick="openview"><div class="Tile_Title">Jugadores</div><div Class="Tile_Subtitle">--</div></div>'
     
                 Procedure OnClick String sId String sParam
-                    Send Show of oJugadorView Self
+
+                    Send NavigateForward of oJugadorView Self
                 End_Procedure
-                
             End_Object
+            
         End_Object
-    
     End_Object
     
     Procedure OnBeforeShow
-        // Each time this view is shown we will update the appropriate information.
     End_Procedure
 
 End_Object

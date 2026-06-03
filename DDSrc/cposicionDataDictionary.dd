@@ -2,6 +2,8 @@
 
 Open posicion
 
+Register_Object oposicionWebLookup
+
 Class cposicionDataDictionary is a DataDictionary
     
     Procedure Construct_Object
@@ -13,6 +15,16 @@ Class cposicionDataDictionary is a DataDictionary
         Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
         Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
 
+        Set Field_WebPrompt_Object Field posicion.ID to oposicionWebLookup
+
+        Set Field_WebPrompt_Object Field posicion.Nombre to oposicionWebLookup
+
     End_Procedure
 
 End_Class
+
+    #IFDEF Is$WebApp
+    Use posicionWebLookup.wo
+    #ELSE
+    #ENDIF
+    

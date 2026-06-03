@@ -1,15 +1,15 @@
 ﻿Use DataDict.pkg
 
-Open jugador
-Open equipo
+Open CodeMast
+Open CodeType
 
-Class cjugadorDataDictionary is a DataDictionary
+Class ccodeMastDataDictionary is a DataDictionary
     
     Procedure Construct_Object
         Forward Send Construct_Object
-        Set Main_File to jugador.File_Number
+        Set Main_File to CodeMast.File_Number
 
-        Set Add_System_File to equipo.File_Number DD_Lock_On_New_Save
+        Set Add_Server_File to CodeType.File_Number
 
         Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
         Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True

@@ -1,7 +1,7 @@
 [Workspace]
 CurrentProject=WebApp.src
 Location=C:\DataFlex Projects\FutbolWebbApp\IdeSrc\sunbr_Studio.dsk
-CreateNew=3
+CreateNew=4
 [TabWindows]
 GroupCount=1
 HorizontalGroups=1
@@ -9,59 +9,59 @@ HorizontalGroups=1
 GroupSize=40
 SelectedTab=6
 [Window0]
-Filename=C:\DataFlex Projects\FutbolWebbApp\AppSrc\LigaMobile.wo
-ViewType=1
-Top=21
-Left=0
-Bottom=631
-Right=1428
-CursorLine=62
-CursorColumn=46
-TabIndex=3
-TabGroup=0
-[Window1]
 Filename=C:\DataFlex Projects\FutbolWebbApp\AppSrc\EntrenadorView.wo
 ViewType=1
 Top=21
 Left=0
 Bottom=631
 Right=1428
-CursorLine=12
-CursorColumn=8
+CursorLine=34
+CursorColumn=13
 TabIndex=0
 TabGroup=0
-[Window2]
+[Window1]
 Filename=C:\DataFlex Projects\FutbolWebbApp\AppSrc\PosicionView.wo
 ViewType=1
 Top=21
 Left=0
 Bottom=631
 Right=1428
-CursorLine=10
-CursorColumn=8
+CursorLine=25
+CursorColumn=40
 TabIndex=1
 TabGroup=0
-[Window3]
-Filename=C:\DataFlex Projects\FutbolWebbApp\AppSrc\EquipoSelect.wo
-ViewType=1
-Top=21
-Left=0
-Bottom=631
-Right=1428
-CursorLine=12
-CursorColumn=8
-TabIndex=4
-TabGroup=0
-[Window4]
+[Window2]
 Filename=C:\DataFlex Projects\FutbolWebbApp\AppSrc\Dashboard.wo
 ViewType=1
 Top=21
 Left=0
 Bottom=631
 Right=1428
-CursorLine=97
-CursorColumn=58
+CursorLine=29
+CursorColumn=61
 TabIndex=2
+TabGroup=0
+[Window3]
+Filename=C:\DataFlex Projects\FutbolWebbApp\AppSrc\LigaMobile.wo
+ViewType=1
+Top=21
+Left=0
+Bottom=631
+Right=1428
+CursorLine=61
+CursorColumn=12
+TabIndex=3
+TabGroup=0
+[Window4]
+Filename=C:\DataFlex Projects\FutbolWebbApp\AppSrc\EquipoSelect.wo
+ViewType=1
+Top=21
+Left=0
+Bottom=631
+Right=1428
+CursorLine=25
+CursorColumn=28
+TabIndex=4
 TabGroup=0
 [Window5]
 Filename=C:\DataFlex Projects\FutbolWebbApp\AppSrc\LigaView.wo
@@ -70,55 +70,93 @@ Top=21
 Left=0
 Bottom=631
 Right=1428
-CursorLine=34
-CursorColumn=13
+CursorLine=119
+CursorColumn=18
 TabIndex=5
 TabGroup=0
 [Window6]
-Filename=C:\Program Files\DataFlex 25.0\Pkg\cWebNavPathHelper_mixin.pkg
-ViewType=1
-Top=21
-Left=0
-Bottom=631
-Right=1428
-CursorLine=76
-CursorColumn=0
-TabIndex=9
-TabGroup=0
-[Window7]
-Filename=C:\DataFlex Projects\FutbolWebbApp\AppSrc\ligaWebLookup.wo
-ViewType=1
-Top=21
-Left=0
-Bottom=631
-Right=1428
-CursorLine=12
-CursorColumn=21
-TabIndex=10
-TabGroup=0
-[Window8]
-Filename=C:\DataFlex Projects\FutbolWebbApp\AppSrc\EquipoView.wo
-ViewType=1
-Top=21
-Left=0
-Bottom=631
-Right=1428
-CursorLine=50
-CursorColumn=60
-TabIndex=8
-TabGroup=0
-[Window9]
 Filename=C:\DataFlex Projects\FutbolWebbApp\AppSrc\WebApp.src
 ViewType=1
 Top=21
 Left=0
 Bottom=631
 Right=1428
-CursorLine=221
+CursorLine=224
 CursorColumn=0
 TabIndex=7
 TabGroup=0
+[Window7]
+Filename=C:\DataFlex Projects\FutbolWebbApp\AppSrc\EquipoView.wo
+ViewType=1
+Top=21
+Left=0
+Bottom=631
+Right=1428
+CursorLine=20
+CursorColumn=0
+TabIndex=8
+TabGroup=0
+[Window8]
+Filename=C:\Program Files\DataFlex 25.0\Pkg\cWebNavPathHelper_mixin.pkg
+ViewType=1
+Top=21
+Left=0
+Bottom=631
+Right=1428
+CursorLine=255
+CursorColumn=54
+TabIndex=9
+TabGroup=0
+[Window9]
+Filename=C:\DataFlex Projects\FutbolWebbApp\AppSrc\ligaWebLookup.wo
+ViewType=1
+Top=21
+Left=0
+Bottom=631
+Right=1428
+CursorLine=91
+CursorColumn=25
+TabIndex=10
+TabGroup=0
 [Window10]
+Filename=C:\DataFlex Projects\FutbolWebbApp\AppSrc\posicionWebLookup.wo
+ViewType=1
+Top=21
+Left=0
+Bottom=631
+Right=1428
+CursorLine=70
+CursorColumn=25
+TabIndex=11
+TabGroup=0
+[Window11]
+Filename=C:\DataFlex Projects\FutbolWebbApp\DDSrc\centrenadorDataDictionary.dd
+ViewType=3
+Top=21
+Left=0
+Bottom=631
+Right=1428
+TabIndex=12
+TabGroup=0
+[Window12]
+Filename=C:\DataFlex Projects\FutbolWebbApp\DDSrc\cjugadorDataDictionary.dd
+ViewType=3
+Top=21
+Left=0
+Bottom=631
+Right=1428
+TabIndex=13
+TabGroup=0
+[Window13]
+Filename=C:\DataFlex Projects\FutbolWebbApp\DDSrc\ccodeMastDataDictionary.dd
+ViewType=3
+Top=21
+Left=0
+Bottom=631
+Right=1428
+TabIndex=14
+TabGroup=0
+[Window14]
 Filename=C:\DataFlex Projects\FutbolWebbApp\AppSrc\JugadorView.wo
 ViewType=1
 Top=21
@@ -126,6 +164,6 @@ Left=0
 Bottom=631
 Right=1428
 CursorLine=76
-CursorColumn=10
+CursorColumn=13
 TabIndex=6
 TabGroup=0

@@ -1,12 +1,13 @@
 ﻿// C:\DataFlex Projects\FutbolWebbApp\AppSrc\JugadorView.wo
 // Ficha del Jugador
 //
-
 Use cWebView.pkg
 Use cWebPanel.pkg
 Use cWebForm.pkg
-
-Use cposicionDataDictionary.dd
+Use cWebButton.pkg
+Use cWebCombo.pkg
+Register_Object oPosicionView
+Use ccodeMastDataDictionary.dd
 Use cjugadorDataDictionary.dd
 
 Object oJugadorView is a cWebView
@@ -14,15 +15,19 @@ Object oJugadorView is a cWebView
     Set psCaption to "Ficha del Jugador"
     Set piWidth to 700
 
-    Object oposicion_DD is a cposicionDataDictionary
-    End_Object 
-
     Object ojugador_DD is a cjugadorDataDictionary
+    End_Object
 
-    End_Object 
+    Object ocodemast_DD is a ccodeMastDataDictionary
+    End_Object
 
     Set Main_DD to ojugador_DD
     Set Server  to ojugador_DD
+    
+    Procedure OnShow
+    Forward Send OnShow
+    Send Request_Find of ojugador_DD FIRST_RECORD jugador.File_Number 1
+End_Procedure
 
     Object oWebMainPanel is a cWebPanel
         Set piColumnCount to 12
@@ -33,7 +38,7 @@ Object oJugadorView is a cWebView
             Set piColumnIndex to 0
             Set peLabelPosition to lpTop
             Set psLabel to "ID Jugador"
-        End_Object 
+        End_Object
 
         Object ojugadorNombre is a cWebForm
             Entry_Item jugador.Nombre
@@ -41,7 +46,7 @@ Object oJugadorView is a cWebView
             Set piColumnIndex to 0
             Set peLabelPosition to lpTop
             Set psLabel to "Nombre"
-        End_Object 
+        End_Object
 
         Object ojugadorApellido is a cWebForm
             Entry_Item jugador.Apellido
@@ -49,24 +54,40 @@ Object oJugadorView is a cWebView
             Set piColumnIndex to 0
             Set peLabelPosition to lpTop
             Set psLabel to "Apellido"
-        End_Object 
+        End_Object
 
-        Object oposicionID is a cWebForm
-            
-            Set piColumnSpan to 4
+        Object ojugadorNacionalidad is a cWebCombo
+            Entry_Item jugador.Nacionalidad
+            Set piColumnSpan to 6
             Set piColumnIndex to 0
             Set peLabelPosition to lpTop
-            Set psLabel to "ID Posición (Sin relación real)"
-            
-            Set pbPromptButton to True 
-            
-            WebRegisterPath ntNavigateForward oposicionWebLookup 
+            Set psLabel to "Nacionalidad"
 
-            Procedure OnPrompt
+           Procedure OnFill
+    Forward Send OnFill
+    
+    Move "NACION" to codemast.Type
+    Move ""        to codemast.Code
+    Find GE codemast by Index.1
+    
+    While (Found and (Trim(codemast.Type) = "NACION"))
+        Send AddComboItem (Trim(codemast.Description)) (Trim(codemast.Description))
+        Find GT codemast by Index.1
+    Loop
+End_Procedure
+        End_Object
+
+        Object oVerPosicionesButton is a cWebButton
+            Set piColumnSpan to 4
+            Set piColumnIndex to 0
+            Set psCaption to "Ver Posiciones"
+
+            WebRegisterPath ntNavigateForward oPosicionView
+
+            Procedure OnClick
                 Send NavigatePath
             End_Procedure
-        End_Object 
-        
-    End_Object 
+        End_Object
 
+    End_Object
 End_Object

@@ -218,6 +218,7 @@ Object oWebApp is a cWebApp
     Use LigaMobile.wo
     Use EquipoSelect.wo
     Use ligaWebLookup.wo
+    Use posicionWebLookup.wo
     Set phoDefaultView to oDashboard
 
 End_Object

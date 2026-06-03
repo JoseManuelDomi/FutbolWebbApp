@@ -57,6 +57,17 @@
 			</DDClasses>
 		</Table>
 		<Table>
+			<tableNumber>254</tableNumber>
+			<tableName>CodeMast</tableName>
+			<DDClasses>
+				<DDClass>
+					<className>ccodeMastDataDictionary</className>
+					<classFile>ccodeMastDataDictionary.dd</classFile>
+					<preferred>true</preferred>
+				</DDClass>
+			</DDClasses>
+		</Table>
+		<Table>
 			<tableNumber>263</tableNumber>
 			<tableName>WebAppSession</tableName>
 			<DDClasses>

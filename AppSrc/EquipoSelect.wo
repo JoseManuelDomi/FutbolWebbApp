@@ -11,7 +11,6 @@ Use cWebList.pkg
 Use cWebColumn.pkg
 
 Object oEquipoSelect is a cWebView
-    Set Server to oequipo_DD
     Set piColumnCount to 12
     Set psCaption to "EquipoSelect"
     Set piWidth to 700
@@ -23,8 +22,8 @@ Object oEquipoSelect is a cWebView
         Set DDO_Server To oliga_DD
     End_Object 
 
-    Set Main_DD To oequipo_DD
-
+    Set Main_DD to oequipo_DD
+    Set Server to oequipo_DD
 
     Object oWebMainPanel is a cWebPanel
         Set piColumnCount to 12

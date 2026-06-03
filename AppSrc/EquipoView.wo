@@ -11,6 +11,8 @@ Use cWebColumn.pkg
 Use cligaDataDictionary.dd
 Use cequipoDataDictionary.dd
 Use cjugadorDataDictionary.dd
+Register_Object oligaWebLookup
+Use ligaWebLookup.wo
 
 Object oEquipoView is a cWebView
     Set piColumnCount to 12

@@ -10,7 +10,6 @@ Use cWebMenuItem.pkg
 Use cWebLabel.pkg
 Use cWebList.pkg
 Use cWebColumn.pkg
-
 Register_Object oJugadorView
 Register_Object oLigaView
 Register_Object oEquipoView
@@ -18,19 +17,18 @@ Register_Object oEntrenadorView
 Register_Object oPosicionView
 
 Object oDashboard is a cWebView
-
     Set piMaxWidth to 1024
     Set psCaption to "Dashboard"
     Set peViewType to vtUndefined
     Set pbShowCaption to False
     Set psCSSClass to "Dashboard"
-    
+
     Object oWebMainPanel is a cWebPanel
         Set piColumnCount to 24
-        
+
         WebSetResponsive piColumnCount rmMobile to 1
         WebSetResponsive piColumnCount rmTabletPortrait to 16
-    
+
         Object oTiles_grp is a cWebGroup
             Set piColumnSpan to 8
             Set pbShowBorder to False
@@ -43,9 +41,11 @@ Object oDashboard is a cWebView
                 Set piColumnSpan to 6
                 Set psCSSClass to "Tile Dark"
                 Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title">Equipos</div><div class="Tile_Subtitle"></div></div>'
-    
+
+                WebRegisterPath ntNavigateForward oEquipoView
+
                 Procedure OnClick String sId String sParam
-                    Send NavigateForward of oEquipoView Self 
+                    Send NavigatePath
                 End_Procedure
             End_Object
 
@@ -55,9 +55,11 @@ Object oDashboard is a cWebView
                 Set piColumnIndex to 6
                 Set psCSSClass to "Tile LightAlternate"
                 Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title">Ligas</div><div class="Tile_Subtitle"></div></div>'
-                                
+
+                WebRegisterPath ntNavigateForward oLigaView
+
                 Procedure OnClick String sId String sParam
-                    Send NavigateForward of oLigaView Self
+                    Send NavigatePath
                 End_Procedure
             End_Object
 
@@ -67,10 +69,11 @@ Object oDashboard is a cWebView
                 Set piColumnIndex to 0
                 Set psCSSClass to "Tile DarkAlternate"
                 Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title">Entrenadores</div><div class="Tile_Subtitle"></div></div>'
-            
-                Procedure OnClick String sId String sParam
 
-                    Send NavigateForward of oEntrenadorView Self
+                WebRegisterPath ntNavigateForward oEntrenadorView
+
+                Procedure OnClick String sId String sParam
+                    Send NavigatePath
                 End_Procedure
             End_Object
 
@@ -80,30 +83,30 @@ Object oDashboard is a cWebView
                 Set piColumnIndex to 6
                 Set psCSSClass to "Tile DarkAlternate"
                 Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title">Posiciones</div><div class="Tile_Subtitle"></div></div>'
-            
+
+                WebRegisterPath ntNavigateForward oPosicionView
+
                 Procedure OnClick String sId String sParam
-                    Send NavigateForward of oPosicionView Self
+                    Send NavigatePath
                 End_Procedure
             End_Object
 
             Object oWelcomeTile is a cWebHtmlBox
-                Set pbServerOnClick to True 
-                
+                Set pbServerOnClick to True
                 Set piColumnSpan to 6
                 Set psCSSClass to "Tile Light"
-
                 Set psHtml to '<div Class="WebCon_Sizer" data-ServerOnClick="openview"><div class="Tile_Title">Jugadores</div><div Class="Tile_Subtitle">--</div></div>'
-    
-                Procedure OnClick String sId String sParam
 
-                    Send NavigateForward of oJugadorView Self
+                WebRegisterPath ntNavigateForward oJugadorView
+
+                Procedure OnClick String sId String sParam
+                    Send NavigatePath
                 End_Procedure
             End_Object
-            
+
         End_Object
     End_Object
-    
+
     Procedure OnBeforeShow
     End_Procedure
-
 End_Object

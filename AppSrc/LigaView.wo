@@ -7,6 +7,8 @@ Use cWebPanel.pkg
 Use cWebForm.pkg
 Use cWebGrid.pkg
 Use cWebColumn.pkg
+Use cWebButton.pkg
+Register_Object oEquipoView
 
 Use cligaDataDictionary.dd
 Use cequipoDataDictionary.dd
@@ -83,6 +85,8 @@ End_Procedure
             Set piOrdering to 2
             Set pbFillHeight to True
             Set piColumnSpan to 12
+            
+            
 
             Object oequipoID is a cWebColumn
                 Entry_Item equipo.ID
@@ -96,6 +100,25 @@ End_Procedure
                 Set piWidth to 1201
             End_Object 
         End_Object 
+        
+        Object oVerEquiposButton is a cWebButton
+            Set piColumnSpan to 4
+            Set piColumnIndex to 0
+            Set psCaption to "Ver Equipos de esta Liga"
+            
+            WebRegisterPath ntNavigateForward oEquipoView
+            
+            Procedure OnClick
+                Send NavigatePath
+            End_Procedure
+            
+            Procedure OnGetNavigateForwardData Handle hoInvokedView tWebNavigateData ByRef NavigateData
+                Move liga.File_Number  to NavigateData.iTable
+                Move 0                 to NavigateData.iColumn
+                Move (String(liga.ID)) to NavigateData.sRowID
+            End_Procedure
+        End_Object
+        
     End_Object 
 
 End_Object 
